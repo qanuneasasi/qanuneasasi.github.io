@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<article class="article">
+  <header class="article-header">
+    <div class="article-number">{{ page.article_number }}</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.status %}
+    <span class="status-badge status-{{ page.status }}">
+      {% case page.status %}
+        {% when 'draft' %}پیش‌نویس | Draft{% endcase %}
+        {% when 'review' %}در بازبینی | Under Review{% endcase %}
+        {% when 'voting' %}در رأی‌گیری | Voting{% endcase %}
+        {% when 'ratified' %}تصویب‌شده | Ratified{% endcase %}
+      {% endcase %}
+    </span>
+    {% endif %}
+  </header>
+
+  <div class="article-content">
+    {{ content }}
+  </div>
+
+  {% if page.related_articles %}
+  <aside class="related-articles">
+    <h3>مواد مرتبط | Related Articles</h3>
+    <ul>
+      {% for article in page.related_articles %}
+      <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+</article>

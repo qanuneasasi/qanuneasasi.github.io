@@ -1,0 +1,28 @@
+<header class="site-header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a href="{{ '/' | relative_url }}" class="logo">
+        <span class="logo-fa">قانون اساسی نوین</span>
+        <span class="logo-en">Iran Constitution</span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <a href="{{ '/docs/' | relative_url }}">قانون اساسی</a>
+      <a href="{{ '/docs/preamble/' | relative_url }}">مقدمه</a>
+      <a href="https://github.com/{{ site.repository }}" target="_blank" rel="noopener">GitHub</a>
+
+      <!-- Language Switcher -->
+      <div class="lang-switch">
+        <a href="{{ page.url | replace: '/en/', '/' }}" {% if page.lang != 'en' %}class="active"{% endif %}>فارسی</a>
+        <a href="{{ '/en' | append: page.url }}" {% if page.lang == 'en' %}class="active"{% endif %}>English</a>
+      </div>
+    </div>
+
+    <button class="navbar-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>

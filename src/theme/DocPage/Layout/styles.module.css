@@ -1,0 +1,42 @@
+.rtlDocWrapper {
+  width: 100%;
+}
+
+/* Force the docs wrapper to reverse - sidebar on right */
+.rtlDocWrapper [class*="docsWrapper"] {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+}
+
+/* Ensure sidebar is on the right */
+.rtlDocWrapper aside[class*="sidebar"],
+.rtlDocWrapper [class*="docSidebar"] {
+  order: 1 !important;
+}
+
+/* Main content on the left */
+.rtlDocWrapper main[class*="docMainContainer"] {
+  order: 2 !important;
+}
+
+/* RTL text direction for all content */
+.rtlDocWrapper article,
+.rtlDocWrapper [class*="docItemContainer"],
+.rtlDocWrapper .markdown {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Sidebar menu items RTL */
+.rtlDocWrapper .menu,
+.rtlDocWrapper .menu__list,
+.rtlDocWrapper .menu__link {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Table of contents RTL */
+.rtlDocWrapper .table-of-contents {
+  direction: rtl !important;
+  text-align: right !important;
+}

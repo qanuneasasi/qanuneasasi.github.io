@@ -1,0 +1,113 @@
+# Jekyll configuration for Iran Constitutional Framework
+
+# Site settings
+title: "قانون اساسی نوین | Iran Constitution"
+title_fa: "قانون اساسی نوین"
+title_en: "New Constitution of Iran"
+description: "Open-source, community-driven constitutional framework for Iran's democratic future"
+description_fa: "پیش‌نویس قانون اساسی نوین ایران - پروژه‌ای جمعی و متن‌باز"
+baseurl: "/iran-constitution"  # Change to your repo name
+url: ""  # GitHub Pages will set this
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Collections for articles
+collections:
+  chapters:
+    output: true
+    permalink: /:collection/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      lang: fa
+      dir: rtl
+  - scope:
+      path: "en"
+    values:
+      lang: en
+      dir: ltr
+  - scope:
+      path: "docs"
+      type: "pages"
+    values:
+      layout: article
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - CONTRIBUTING.md
+  - GOVERNANCE.md
+  - CODE_OF_CONDUCT.md
+  - LICENSE
+  - .github
+
+# Include these files
+include:
+  - _pages
+
+# Pagination (if needed)
+paginate: 10
+paginate_path: "/page:num/"
+
+# GitHub repository for edit links
+repository: "YOUR-USERNAME/iran-constitution"
+github_edit_link: true
+
+# Localization
+languages:
+  - fa
+  - en
+
+default_lang: fa
+
+# Navigation (sidebar)
+navigation:
+  - title: "مقدمه | Preamble"
+    url: /docs/preamble/
+  - title: "فصل اول: اصول بنیادین"
+    url: /docs/chapter-01/
+    children:
+      - title: "اصل ۱: حاکمیت ملی"
+        url: /docs/chapter-01/article-01/
+      - title: "اصل ۲: جمهوریت"
+        url: /docs/chapter-01/article-02/
+      - title: "اصل ۳: دموکراسی"
+        url: /docs/chapter-01/article-03/
+      - title: "اصل ۴: تفکیک قوا"
+        url: /docs/chapter-01/article-04/
+      - title: "اصل ۵: حاکمیت قانون"
+        url: /docs/chapter-01/article-05/
+      - title: "اصل ۶: تمامیت ارضی"
+        url: /docs/chapter-01/article-06/
+
+# SEO
+twitter:
+  card: summary
+
+social:
+  name: Iran Constitution Project
+  links:
+    - https://github.com/YOUR-USERNAME/iran-constitution
+
+# Analytics (add your own)
+# google_analytics: UA-XXXXXXXX-X

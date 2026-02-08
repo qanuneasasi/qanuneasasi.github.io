@@ -1,0 +1,385 @@
+/**
+ * RTL (Right-to-Left) Styling for Persian/Farsi
+ * قانون اساسی نوین
+ */
+
+/* RTL direction for Persian locale */
+[dir='rtl'] {
+  /* Base typography */
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+  text-align: right;
+}
+
+/* RTL Layout adjustments */
+/* Navbar: Keep logo and main items on right, GitHub/مشارکت on left */
+[dir='rtl'] .navbar__inner {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .navbar__items {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .navbar__items--right {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .navbar__logo {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Sidebar RTL - Move to RIGHT side */
+[dir='rtl'] .theme-doc-sidebar-container {
+  border-right: none;
+  border-left: 1px solid var(--ifm-toc-border-color);
+}
+
+[dir='rtl'] .menu__link {
+  padding-right: var(--ifm-menu-link-padding-horizontal);
+  padding-left: var(--ifm-menu-link-padding-horizontal);
+}
+
+[dir='rtl'] .menu__list-item-collapsible .menu__link {
+  padding-right: var(--ifm-menu-link-padding-horizontal);
+}
+
+[dir='rtl'] .menu__caret {
+  transform: rotate(180deg);
+}
+
+[dir='rtl'] .menu__list-item--collapsed .menu__caret {
+  transform: rotate(90deg);
+}
+
+/* In-page Table of Contents - move to LEFT side */
+[dir='rtl'] .table-of-contents {
+  border-left: none;
+  border-right: 1px solid var(--ifm-toc-border-color);
+  padding-left: 0;
+  padding-right: var(--ifm-toc-padding-horizontal);
+}
+
+[dir='rtl'] .table-of-contents__link::before {
+  right: auto;
+  left: 0;
+}
+
+[dir='rtl'] article {
+  direction: rtl;
+}
+
+/* Breadcrumbs RTL */
+[dir='rtl'] .breadcrumbs__item:not(:last-child)::after {
+  content: '\002F';
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .breadcrumbs__link {
+  padding-right: 0;
+  padding-left: var(--ifm-breadcrumb-padding-horizontal);
+}
+
+/* Pagination RTL */
+[dir='rtl'] .pagination-nav {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .pagination-nav__link--prev .pagination-nav__label::before {
+  content: ' →';
+}
+
+[dir='rtl'] .pagination-nav__link--next .pagination-nav__label::after {
+  content: '← ';
+}
+
+/* Lists RTL */
+[dir='rtl'] ul,
+[dir='rtl'] ol {
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+[dir='rtl'] li::marker {
+  unicode-bidi: isolate;
+}
+
+/* Blockquotes RTL */
+[dir='rtl'] blockquote {
+  border-right: 4px solid var(--ifm-color-primary);
+  border-left: none;
+  padding-right: 1rem;
+  padding-left: 0;
+  margin-right: 0;
+}
+
+/* Admonitions RTL */
+[dir='rtl'] .admonition {
+  border-right-width: 5px;
+  border-left-width: 0;
+}
+
+[dir='rtl'] .admonition-icon {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Code blocks RTL */
+[dir='rtl'] .prism-code {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Search RTL */
+[dir='rtl'] .DocSearch-Button {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .DocSearch-Button-Placeholder {
+  padding-right: 0.5rem;
+  padding-left: 0;
+}
+
+/* Dropdown RTL */
+[dir='rtl'] .dropdown__menu {
+  right: 0;
+  left: auto;
+}
+
+/* Edit this page button RTL */
+[dir='rtl'] .theme-edit-this-page {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .theme-edit-this-page svg {
+  margin-left: 0.4rem;
+  margin-right: 0;
+}
+
+/* Footer RTL */
+[dir='rtl'] .footer__links {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .footer__col {
+  text-align: right;
+}
+
+/* Article-specific RTL */
+[dir='rtl'] .article-number {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir='rtl'] .commentary {
+  border-right: 4px solid var(--ifm-color-primary);
+  border-left: none;
+}
+
+/* Tabs RTL */
+[dir='rtl'] .tabs {
+  flex-direction: row-reverse;
+}
+
+/* Alert/Banner RTL */
+[dir='rtl'] .alert {
+  text-align: right;
+}
+
+/* Modal RTL */
+[dir='rtl'] .modal__close {
+  left: 1rem;
+  right: auto;
+}
+
+/* Cards RTL */
+[dir='rtl'] .card {
+  text-align: right;
+}
+
+/* Icons in RTL - flip directional icons */
+[dir='rtl'] .icon-arrow-right,
+[dir='rtl'] .icon-chevron-right,
+[dir='rtl'] [class*='arrow-right'],
+[dir='rtl'] [class*='chevron-right'] {
+  transform: scaleX(-1);
+}
+
+/* Numbers should stay LTR */
+[dir='rtl'] .article-number,
+[dir='rtl'] time,
+[dir='rtl'] .version-number {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* Mixed content handling */
+[dir='rtl'] .mixed-content {
+  unicode-bidi: plaintext;
+}
+
+/* English text within RTL context */
+[dir='rtl'] .text-en,
+[dir='rtl'] [lang='en'] {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+/* Ensure proper alignment for inline English */
+[dir='rtl'] code,
+[dir='rtl'] kbd,
+[dir='rtl'] samp {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* Form elements RTL */
+[dir='rtl'] input,
+[dir='rtl'] textarea,
+[dir='rtl'] select {
+  text-align: right;
+}
+
+[dir='rtl'] input[type='email'],
+[dir='rtl'] input[type='url'],
+[dir='rtl'] input[type='number'] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Button groups RTL */
+[dir='rtl'] .button-group {
+  flex-direction: row-reverse;
+}
+
+/* Status badges RTL */
+[dir='rtl'] .status-badge svg {
+  margin-left: 0.25rem;
+  margin-right: 0;
+}
+
+/* Responsive RTL adjustments */
+@media (max-width: 996px) {
+  [dir='rtl'] .navbar-sidebar {
+    right: 0;
+    left: auto;
+  }
+
+  [dir='rtl'] .navbar-sidebar__backdrop {
+    left: 0;
+  }
+}
+
+/* Print RTL */
+@media print {
+  [dir='rtl'] {
+    direction: rtl;
+  }
+}
+
+/* ========================================
+   BLOG RTL STYLING
+   ======================================== */
+
+/* Blog wrapper and main container */
+[dir='rtl'] [class*="blogWrapper"],
+[dir='rtl'] [class*="blogListPage"],
+[dir='rtl'] main[class*="blog"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post items on listing page */
+[dir='rtl'] [class*="blogPostItem"],
+[dir='rtl'] [class*="blogPost"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post title */
+[dir='rtl'] [class*="blogPostTitle"],
+[dir='rtl'] [class*="blogPost"] h1,
+[dir='rtl'] [class*="blogPost"] h2,
+[dir='rtl'] [class*="blogPost"] h3 {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post metadata (date, author, reading time) */
+[dir='rtl'] [class*="blogPostData"],
+[dir='rtl'] [class*="blogPostInfo"],
+[dir='rtl'] footer[class*="blogPost"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post content */
+[dir='rtl'] [class*="blogPostContent"],
+[dir='rtl'] [class*="blogMarkdown"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog sidebar (article list) */
+[dir='rtl'] aside[class*="blogSidebar"],
+[dir='rtl'] [class*="blogSidebarTitle"],
+[dir='rtl'] [class*="sidebarItemLink"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog tags */
+[dir='rtl'] [class*="blogTagsListPage"],
+[dir='rtl'] [class*="tagList"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog author section */
+[dir='rtl'] [class*="authorRow"],
+[dir='rtl'] [class*="authorCol"],
+[dir='rtl'] [class*="imageOnlyAuthorRow"] {
+  direction: rtl !important;
+  text-align: right !important;
+  flex-direction: row-reverse !important;
+}
+
+/* All text elements in blog */
+[dir='rtl'] [class*="blog"] p,
+[dir='rtl'] [class*="blog"] li,
+[dir='rtl'] [class*="blog"] span:not([class*="token"]),
+[dir='rtl'] [class*="blog"] a:not([class*="hash-link"]) {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* SUPER AGGRESSIVE: Target the main container */
+[dir='rtl'] main,
+[dir='rtl'] .main-wrapper,
+[dir='rtl'] [class*="mainWrapper"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Target container and row elements */
+[dir='rtl'] .container,
+[dir='rtl'] [class*="container"],
+[dir='rtl'] .row,
+[dir='rtl'] [class*="row"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Target col elements */
+[dir='rtl'] [class*="col"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Target markdown content */
+[dir='rtl'] .markdown,
+[dir='rtl'] [class*="markdown"] {
+  direction: rtl !important;
+  text-align: right !important;
+}

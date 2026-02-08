@@ -1,0 +1,790 @@
+/**
+ * Custom CSS for قانون اساسی نوین
+ * Persian/Iranian constitutional framework platform
+ */
+
+/* Import Persian font - Vazirmatn */
+@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css');
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables */
+:root {
+  /* Brand colors - Persian inspired */
+  --ifm-color-primary: #05c8b0;
+  --ifm-color-primary-dark: #00a191;
+  --ifm-color-primary-darker: #058076;
+  --ifm-color-primary-darkest: #0a655f;
+  --ifm-color-primary-light: #1ee4c9;
+  --ifm-color-primary-lighter: #52f7dd;
+  --ifm-color-primary-lightest: #91ffea;
+
+  /* Accent colors */
+  --color-gold: #f59e0b;
+  --color-persian-red: #e87725;
+
+  /* Typography */
+  --ifm-font-family-base: 'Vazirmatn', Tahoma, Arial, sans-serif;
+  --ifm-heading-font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+
+  /* Spacing */
+  --ifm-spacing-horizontal: 1.5rem;
+  --article-content-width: 48rem;
+
+  /* Code blocks */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode */
+[data-theme='dark'] {
+  --ifm-color-primary: #52f7dd;
+  --ifm-color-primary-dark: #1ee4c9;
+  --ifm-color-primary-darker: #05c8b0;
+  --ifm-color-primary-darkest: #00a191;
+  --ifm-color-primary-light: #91ffea;
+  --ifm-color-primary-lighter: #c8fff4;
+  --ifm-color-primary-lightest: #effefb;
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Persian locale specific styles */
+:lang(fa) {
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+  line-height: 2;
+}
+
+:lang(fa) h1,
+:lang(fa) h2,
+:lang(fa) h3,
+:lang(fa) h4,
+:lang(fa) h5,
+:lang(fa) h6 {
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* Article styling */
+.article-content {
+  max-width: var(--article-content-width);
+  margin: 0 auto;
+}
+
+.article-number {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--color-gold));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.article-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.article-text {
+  font-size: 1.125rem;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+}
+
+/* Commentary section */
+.commentary {
+  background-color: var(--ifm-background-surface-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-inline-start: 4px solid var(--ifm-color-primary);
+}
+
+.commentary-title {
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* Draft notice styling */
+.draft-notice {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 1px solid #f59e0b;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #92400e;
+}
+
+[data-theme='dark'] .draft-notice {
+  background: linear-gradient(135deg, #451a03, #78350f);
+  border-color: #f59e0b;
+  color: #fde68a;
+}
+
+/* Bilingual view */
+.bilingual-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.bilingual-fa {
+  direction: rtl;
+  text-align: right;
+}
+
+.bilingual-en {
+  direction: ltr;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .bilingual-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* RTL wrapper class for Farsi sections */
+.farsi-section,
+.fa-text,
+[dir="rtl"],
+.rtl-content {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+}
+
+/* LTR wrapper class for English sections */
+.english-section,
+.en-text,
+[dir="ltr"],
+.ltr-content {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Farsi headings - auto-detect by Persian characters */
+h2#متن-فارسی,
+h3#استدلال--reasoning,
+h3#تحلیل-تطبیقی--comparative-analysis,
+h3#نکات-مورد-بحث--discussion-points {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+}
+
+/* English headings */
+h2#english-text {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Table cells with Persian content should be RTL */
+.farsi-section table,
+[dir="rtl"] table {
+  direction: rtl;
+}
+
+.farsi-section td,
+.farsi-section th,
+[dir="rtl"] td,
+[dir="rtl"] th {
+  text-align: right;
+}
+
+/* Wrapper classes for explicit control */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Chapter header */
+.chapter-header {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+.chapter-number {
+  color: var(--ifm-color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.chapter-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-draft {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-review {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-voting {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.status-ratified {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+/* Hero section */
+.hero-section {
+  background: linear-gradient(135deg, #003332 0%, #0d544f 50%, #05c8b0 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Navigation enhancements */
+.navbar__title {
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Footer enhancements */
+.footer {
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer * {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer .container {
+  direction: rtl !important;
+}
+
+.footer .footer__links {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer .footer__col {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer .footer__title {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer .footer__item {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer .footer__link-item {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.footer .footer__copyright {
+  direction: rtl !important;
+  text-align: center !important;
+}
+
+/* More aggressive footer RTL */
+footer,
+footer.footer,
+footer.footer--dark,
+[class*="footer"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+footer *,
+footer.footer *,
+footer.footer--dark *,
+[class*="footer"] * {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Footer row - reverse the columns */
+footer .row,
+.footer .row,
+[class*="footer"] .row {
+  direction: rtl !important;
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Footer columns */
+footer .col,
+.footer .col,
+footer [class*="col--"],
+.footer [class*="col--"],
+[class*="footer"] [class*="col"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Footer links list */
+footer ul,
+.footer ul,
+[class*="footer"] ul {
+  direction: rtl !important;
+  text-align: right !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  list-style-position: inside !important;
+}
+
+footer li,
+.footer li,
+[class*="footer"] li {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+footer a,
+.footer a,
+[class*="footer"] a {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+footer h4,
+footer h5,
+footer h6,
+.footer h4,
+.footer h5,
+.footer h6,
+[class*="footer"] h4,
+[class*="footer"] h5,
+[class*="footer"] h6 {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .theme-doc-sidebar-container,
+  .pagination-nav {
+    display: none !important;
+  }
+
+  .article-content {
+    max-width: 100%;
+  }
+}
+
+/* ========================================
+   SIDEBAR POSITION FIX - RTL Layout Swap
+   ======================================== */
+
+/*
+ * Strategy: Use direction:rtl on the flex wrapper to visually
+ * swap sidebar (left→right) and content areas, then restore
+ * direction:ltr on child elements for proper text rendering.
+ */
+
+/* Target the docsWrapper flex container - reverse its layout */
+[class*="docsWrapper"] {
+  direction: rtl !important;
+}
+
+/* Restore LTR direction on child containers */
+[class*="docsWrapper"] > * {
+  direction: ltr !important;
+}
+
+/* Main sidebar - RTL text for Persian menu items */
+aside.theme-doc-sidebar-container,
+.theme-doc-sidebar-container {
+  direction: rtl !important;
+}
+
+aside.theme-doc-sidebar-container .menu,
+.theme-doc-sidebar-container .menu,
+aside.theme-doc-sidebar-container .menu__list,
+.theme-doc-sidebar-container .menu__list {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+aside.theme-doc-sidebar-container .menu__link,
+.theme-doc-sidebar-container .menu__link,
+aside.theme-doc-sidebar-container .menu__list-item,
+.theme-doc-sidebar-container .menu__list-item {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Sidebar category labels */
+aside.theme-doc-sidebar-container .menu__list-item-collapsible,
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Force ALL elements inside red sidebar to be RTL */
+aside.theme-doc-sidebar-container *,
+.theme-doc-sidebar-container * {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* CRITICAL: Reverse flex direction for menu items with dropdowns */
+aside.theme-doc-sidebar-container .menu__list-item-collapsible > *,
+.theme-doc-sidebar-container .menu__list-item-collapsible,
+aside.theme-doc-sidebar-container .menu__caret,
+.theme-doc-sidebar-container .menu__caret,
+aside.theme-doc-sidebar-container [class*="collapsible"],
+.theme-doc-sidebar-container [class*="collapsible"] {
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+}
+
+/* ALL menu links - text aligned RIGHT */
+aside.theme-doc-sidebar-container .menu__link--sublist,
+.theme-doc-sidebar-container .menu__link--sublist,
+aside.theme-doc-sidebar-container .menu__link,
+.theme-doc-sidebar-container .menu__link {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  width: 100% !important;
+  text-align: right !important;
+}
+
+/* Arrow stays before text (to the left in visual order) */
+aside.theme-doc-sidebar-container .menu__link--sublist::after,
+.theme-doc-sidebar-container .menu__link--sublist::after,
+aside.theme-doc-sidebar-container .menu__caret,
+.theme-doc-sidebar-container .menu__caret,
+aside.theme-doc-sidebar-container [class*="expandButton"],
+.theme-doc-sidebar-container [class*="expandButton"] {
+  order: -1 !important;
+  margin-right: 8px !important;
+  margin-left: 0 !important;
+}
+
+/* Text content - align right */
+aside.theme-doc-sidebar-container .menu__link span,
+.theme-doc-sidebar-container .menu__link span,
+aside.theme-doc-sidebar-container .menu__link--sublist span,
+.theme-doc-sidebar-container .menu__link--sublist span {
+  text-align: right !important;
+}
+
+/* فصل category wrapper - align content right */
+aside.theme-doc-sidebar-container .menu__list-item-collapsible,
+.theme-doc-sidebar-container .menu__list-item-collapsible {
+  text-align: right !important;
+}
+
+aside.theme-doc-sidebar-container .menu__list-item-collapsible > a,
+.theme-doc-sidebar-container .menu__list-item-collapsible > a {
+  float: right !important;
+  width: auto !important;
+}
+
+/* Fix padding - swap left/right padding in sidebar */
+aside.theme-doc-sidebar-container .menu__link {
+  padding-right: 12px !important;
+  padding-left: 0 !important;
+  justify-content: flex-end !important;
+}
+
+aside.theme-doc-sidebar-container .menu__list .menu__list {
+  padding-right: 12px !important;
+  padding-left: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* In-page TOC container row - use flexbox to reorder */
+[class*="docItemContainer"] .row,
+.row.row--no-gutters {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+}
+
+/* In-page TOC column - force to left (first in reversed order) */
+.col.col--3,
+[class*="tocCollapsible"],
+.theme-doc-toc-desktop {
+  order: -1 !important;
+}
+
+/* In-page TOC - now on left side with RTL text */
+.theme-doc-toc-desktop {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Force ALL elements inside blue TOC to be RTL */
+.theme-doc-toc-desktop *,
+.table-of-contents *,
+.table-of-contents {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Reverse flex for TOC items */
+.theme-doc-toc-desktop ul,
+.theme-doc-toc-desktop li,
+.table-of-contents,
+.table-of-contents li {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+}
+
+/* TOC links align right */
+.theme-doc-toc-desktop a,
+.table-of-contents__link {
+  direction: rtl !important;
+  text-align: right !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Fix padding - swap left/right padding in TOC */
+.theme-doc-toc-desktop ul,
+.table-of-contents {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.theme-doc-toc-desktop li,
+.table-of-contents li {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Nested TOC items - indent from right */
+.table-of-contents .table-of-contents,
+.theme-doc-toc-desktop ul ul {
+  padding-right: 12px !important;
+  padding-left: 0 !important;
+}
+
+/* Ensure article column stays RTL for Persian text */
+[class*="docItemCol"] {
+  direction: rtl !important;
+  order: 1 !important;
+}
+
+/* Main content area */
+main[class*="docMainContainer"] {
+  direction: rtl !important;
+}
+
+/* Article content - RTL for Persian text */
+article,
+.markdown {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* ========================================
+   BLOG RTL STYLING
+   ======================================== */
+
+/* Force entire blog section to be RTL */
+html[lang="fa"] [class*="blog"],
+html[dir="rtl"] [class*="blog"],
+[class*="blog"],
+.blog-wrapper,
+main:has([class*="blog"]) {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* AGGRESSIVE: Target all elements on blog pages */
+html body main[class*="blog"] *,
+html body [class*="blogListPage"] *,
+html body [class*="blogPost"] * {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog listing page - RTL */
+.blog-list-page,
+[class*="blogListPage"],
+main[class*="blogMain"],
+[class*="blogWrapper"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post items */
+[class*="blogPostItem"],
+.blog-post-item,
+[class*="blogPost"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post title and metadata */
+[class*="blogPostTitle"],
+[class*="blogPostDate"],
+[class*="blogPostAuthor"],
+.blog-post-title,
+.blog-post-date,
+[class*="blogPostData"] h1,
+[class*="blogPostData"] h2 {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog sidebar */
+[class*="blogSidebar"],
+.blog-sidebar,
+aside[class*="blogSidebar"],
+aside[class*="Sidebar"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog sidebar title and items */
+[class*="blogSidebarTitle"],
+[class*="blogSidebarItemLink"],
+[class*="sidebarItemTitle"],
+[class*="sidebarItemLink"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog post content */
+[class*="blogPostContent"],
+.blog-post-content,
+[class*="mdxPageWrapper"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog tags */
+[class*="blogTagsListPage"],
+[class*="blogTagItem"],
+.blog-tags,
+[class*="tag_"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog pagination */
+[class*="blogPagination"],
+.pagination-nav {
+  direction: rtl !important;
+}
+
+/* Blog header */
+header[class*="blogPostHeader"],
+[class*="blogPostHeader"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog author info */
+[class*="authorInfo"],
+[class*="authorName"],
+[class*="avatar"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Blog container and row */
+[class*="container"] [class*="blog"],
+[class*="row"] [class*="blog"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* All headings and paragraphs in blog */
+[class*="blog"] h1,
+[class*="blog"] h2,
+[class*="blog"] h3,
+[class*="blog"] h4,
+[class*="blog"] h5,
+[class*="blog"] h6,
+[class*="blog"] p,
+[class*="blog"] li,
+[class*="blog"] span,
+[class*="blog"] a {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Main content wrapper for blog posts */
+[class*="docItemContainer"],
+[class*="blogLayout"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* ========================================
+   HIDE LAST UPDATE INFO
+   ======================================== */
+
+/* Hide the "last updated" info at the bottom of docs */
+[class*="lastUpdated"],
+.theme-last-updated,
+[class*="theme-doc-footer"],
+.theme-doc-footer-edit-meta-row,
+[class*="docFooterEditMetaRow"] {
+  display: none !important;
+}
+
+/* Also hide any element containing "آخرین به روز رسانی" */
+time[datetime],
+.theme-doc-footer time,
+[class*="lastUpdatedAt"] {
+  display: none !important;
+}
